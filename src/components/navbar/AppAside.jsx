@@ -86,8 +86,7 @@ const AppAsida = () => {
                     className={classes.card}
                     radius="md"
                     component="a"
-                    href={item.id}
-                    target="_blank"
+                    href={`news/${item.id}`}
                 >
                     <div className={classes.image} style={{ backgroundImage: `url(${item.image.url})` }} />
                     <div className={classes.overlay} />
