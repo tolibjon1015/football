@@ -1,56 +1,52 @@
 import React from 'react'
-import { Footer, } from '@mantine/core'
+import { Box, Footer, } from '@mantine/core'
 import { createStyles, Anchor, Group, Text, ActionIcon, rem } from '@mantine/core';
 import { IconBrandTwitter, IconBrandYoutube, IconBrandInstagram } from '@tabler/icons-react';
 
 const data = [
     {
         id: 1,
-        link: "#",
-        label: "Contact"
+        link: "/",
+        label: "Home"
     },
     {
         id: 2,
-        link: "#",
-        label: "Privacy"
+        link: "/news",
+        label: "Yangiliklar"
     },
     {
         id: 3,
-        link: "#",
-        label: "Blog"
+        link: "/",
+        label: "o'yinlar"
     },
     {
         id: 4,
-        link: "#",
-        label: "Store"
-    },
-    {
-        id: 5,
-        link: "#",
-        label: "Careers"
+        link: "/support",
+        label: "Murojaat"
     }
-
 ]
 
 const useStyles = createStyles((theme) => ({
     footer: {
         marginTop: rem(120),
-        borderTop: `${rem(1)} solid ${theme.colorScheme === 'dark' ? theme.colors.dark[5] : theme.colors.gray[2]
+        borderTop: `${rem(1)} solid ${theme.colors.blue}
             }`,
     },
 
     inner: {
         display: 'flex',
-        justifyContent: 'space-between',
         alignItems: 'center',
+        justifyContent: "center",
         padding: `${theme.spacing.md} ${theme.spacing.md}`,
-
+        borderTop: `${rem(1)} solid ${theme.colors.blue}
+            }`,
         [theme.fn.smallerThan('sm')]: {
             flexDirection: 'column',
         },
     },
 
     links: {
+        margin: "0 30px",
         [theme.fn.smallerThan('sm')]: {
             marginTop: theme.spacing.lg,
             marginBottom: theme.spacing.sm,
@@ -73,7 +69,7 @@ const AppFooter = () => {
         </Anchor >
     ));
     return (
-        <div >
+        <Box bg={"white"} w={"100%"}>
             <div className={classes.inner}>
                 <Text>Football</Text>
 
@@ -91,7 +87,7 @@ const AppFooter = () => {
                     </ActionIcon>
                 </Group>
             </div>
-        </div>
+        </Box>
     )
 }
 

@@ -219,12 +219,12 @@
     "@jridgewell/resolve-uri" "3.1.0"
     "@jridgewell/sourcemap-codec" "1.4.14"
 
-"@mantine/carousel@^6.0.11":
-  version "6.0.11"
-  resolved "https://registry.yarnpkg.com/@mantine/carousel/-/carousel-6.0.11.tgz#f503696bb83eac276ec7fc80b3b28f516392a8ee"
-  integrity sha512-QKY0f96eFmRGsHcztp+qdPjsjx3rtXLGBzY9e5AmzBSYWRm30tZHVLISz5vcuMkJ3QtQwCAye69/hgjNYpvyPQ==
+"@mantine/carousel@^6.0.15":
+  version "6.0.15"
+  resolved "https://registry.yarnpkg.com/@mantine/carousel/-/carousel-6.0.15.tgz#64220f544a9dbb46036e9820bb65803d6452480b"
+  integrity sha512-5eYPSi8Q6Ze9YDQ8iaNmBHI542PZlzj4SIxF900B1R0D9NckXbev/1pa16Z9ogKNwxttgYzmMq6GDKvfgGzR3A==
   dependencies:
-    "@mantine/utils" "6.0.11"
+    "@mantine/utils" "6.0.15"
 
 "@mantine/core@^6.0.11":
   version "6.0.11"
@@ -338,6 +338,11 @@
   version "6.0.11"
   resolved "https://registry.yarnpkg.com/@mantine/utils/-/utils-6.0.11.tgz#03237be9bda3f671c7f9043a23d058d4e64cb72f"
   integrity sha512-ijkEAaKEhZCw7HSWsGMQZsvfmQKmJXmPoQ1LeEwcH3vjZalPk9pQjSPPfUdTeX9ZAv095XWmfVMiNV8+xvM0OQ==
+
+"@mantine/utils@6.0.15":
+  version "6.0.15"
+  resolved "https://registry.yarnpkg.com/@mantine/utils/-/utils-6.0.15.tgz#d4144221f9406aece12b979bed5888da50d86771"
+  integrity sha512-iVaobFQTCQWG6SRi3im0/nONKCtGRPobG7bXn9GiIT96E4t7uTPglQpo/ZktDrF1XCL8CO/HoQmks4A2iXuMFw==
 
 "@next/env@13.4.3":
   version "13.4.3"
@@ -674,6 +679,16 @@
     "@tiptap/extension-strike" "^2.0.3"
     "@tiptap/extension-text" "^2.0.3"
 
+"@types/cookie@^0.4.1":
+  version "0.4.1"
+  resolved "https://registry.yarnpkg.com/@types/cookie/-/cookie-0.4.1.tgz#bfd02c1f2224567676c1545199f87c3a861d878d"
+  integrity sha512-XW/Aa8APYr6jSVVA1y/DEIZX0/GMKLEVekNG727R8cs56ahETkRAy/3DR7+fJyh7oUgGwNQaRfXCun0+KbWY7Q==
+
+"@types/node@^16.10.2":
+  version "16.18.38"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-16.18.38.tgz#1dcdb6c54d02b323f621213745f2e44af30c73e6"
+  integrity sha512-6sfo1qTulpVbkxECP+AVrHV9OoJqhzCsfTNp5NIG+enM4HyM3HvZCO798WShIXBN0+QtDIcutJCjsVYnQP5rIQ==
+
 "@types/parse-json@^4.0.0":
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/@types/parse-json/-/parse-json-4.0.0.tgz#2f8bb441434d163b35fb8ffdccd7138927ffb8c0"
@@ -860,6 +875,20 @@ convert-source-map@^1.5.0:
   resolved "https://registry.yarnpkg.com/convert-source-map/-/convert-source-map-1.9.0.tgz#7faae62353fb4213366d0ca98358d22e8368b05f"
   integrity sha512-ASFBup0Mz1uyiIjANan1jzLQami9z1PoYSZCiiYW2FczPbenXc45FZdBZLzOT+r6+iciuEModtmCti+hjaAk0A==
 
+cookie@^0.4.0:
+  version "0.4.2"
+  resolved "https://registry.yarnpkg.com/cookie/-/cookie-0.4.2.tgz#0e41f24de5ecf317947c82fc789e06a884824432"
+  integrity sha512-aSWTXFzaKWkvHO1Ny/s+ePFpvKsPnjc551iI41v3ny/ow6tBG5Vd+FuqGNhh1LxOmVzOlGUriIlOaokOvhaStA==
+
+cookies-next@^2.1.2:
+  version "2.1.2"
+  resolved "https://registry.yarnpkg.com/cookies-next/-/cookies-next-2.1.2.tgz#78fe2f3e7b68eb0e1c6682c9e1f4e94ce4d09904"
+  integrity sha512-czxcfqVaQlo0Q/3xMgp/2jpspsuLJrIm6D37wlmibP3DAcYT315c8UxQmDMohhAT/GRWpaHzpDEFANBjzTFQGg==
+  dependencies:
+    "@types/cookie" "^0.4.1"
+    "@types/node" "^16.10.2"
+    cookie "^0.4.0"
+
 core-util-is@~1.0.0:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/core-util-is/-/core-util-is-1.0.3.tgz#a6042d3634c2b27e9328f837b965fac83808db85"
@@ -961,23 +990,28 @@ electron-to-chromium@^1.4.284:
   resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.404.tgz#16baf653a7a2613e221da61480ad02fe84e40231"
   integrity sha512-te57sWvQdpxmyd1GiswaodKdXdPgn9cN4ht8JlNa04QgtrfnUdWEo1261rY2vaC6TKaiHn0E7QerJWPKFCvMVw==
 
-embla-carousel-react@^8.0.0-rc04:
-  version "8.0.0-rc04"
-  resolved "https://registry.yarnpkg.com/embla-carousel-react/-/embla-carousel-react-8.0.0-rc04.tgz#1e610f7cefffddd0176ddc21bff1cd1ad308925c"
-  integrity sha512-dVr8kHkjizjRtxaN2HZU4uOEOgO32RorWPGKLHQxh641eU5e/CkYE8S5g0gkLKQIhivNtbBRJfTr4Oj9P9GupA==
+embla-carousel-autoplay@^8.0.0-rc07:
+  version "8.0.0-rc07"
+  resolved "https://registry.yarnpkg.com/embla-carousel-autoplay/-/embla-carousel-autoplay-8.0.0-rc07.tgz#e155a4db96229a502e9a32e2163a3092bc72eac4"
+  integrity sha512-gwtSBgwdmveGwaltjLhDJwdg55lUxvTxQ3V+zXyfJ/LvOwfWERyP6/DGJ99a0SJBI19N6DZyy1e2NB3HLrCIDw==
+
+embla-carousel-react@^8.0.0-rc07:
+  version "8.0.0-rc07"
+  resolved "https://registry.yarnpkg.com/embla-carousel-react/-/embla-carousel-react-8.0.0-rc07.tgz#526aacb736d4695dbfdeeeaeb3d87583973699f0"
+  integrity sha512-8JX2kIMTbqHvsG6O0XRUHdZJ/66kyKCwFwFVZXZ1YpdrdMlrMHBNyIQP+ETBWgOsNtpbcBeWyZx29YtzCVLgJA==
   dependencies:
-    embla-carousel "8.0.0-rc04"
-    embla-carousel-reactive-utils "8.0.0-rc04"
+    embla-carousel "8.0.0-rc07"
+    embla-carousel-reactive-utils "8.0.0-rc07"
 
-embla-carousel-reactive-utils@8.0.0-rc04:
-  version "8.0.0-rc04"
-  resolved "https://registry.yarnpkg.com/embla-carousel-reactive-utils/-/embla-carousel-reactive-utils-8.0.0-rc04.tgz#66ee2aac922ec6a3f66c69b64a31fa0ccb695062"
-  integrity sha512-aXH07V2jht6XL7dN01dCNLWiHeaoYZnFcmHKGCsawGpkJPmylJPQ05o/1icCHSelPZbNk55ztHi5D8uAFOKX8w==
+embla-carousel-reactive-utils@8.0.0-rc07:
+  version "8.0.0-rc07"
+  resolved "https://registry.yarnpkg.com/embla-carousel-reactive-utils/-/embla-carousel-reactive-utils-8.0.0-rc07.tgz#e998c28972a87da3809d450f8db0032d91faf884"
+  integrity sha512-MfdReTR3p0GTcUqLY0DNF5mkYRHF/pler9yBUjRjjjBb1OTQjcFedXYhoCDO49009x/IPM00kcbQQuEtJWpQRQ==
 
-embla-carousel@8.0.0-rc04:
-  version "8.0.0-rc04"
-  resolved "https://registry.yarnpkg.com/embla-carousel/-/embla-carousel-8.0.0-rc04.tgz#128be74829d82dfbbf9ac0d269f2ed42a8a1f3a6"
-  integrity sha512-+yIKQPSiS+2WcjIjXknCSQ3SPtyRvLjwU0+HJBi7ZAxvg+i405PSVGi0nD3c9XzI3X0s4Y1yuRgthDzusJ8pFw==
+embla-carousel@8.0.0-rc07:
+  version "8.0.0-rc07"
+  resolved "https://registry.yarnpkg.com/embla-carousel/-/embla-carousel-8.0.0-rc07.tgz#3d0efd24a45d4439f29299bf6b6c3e5cdedc40ee"
+  integrity sha512-IdGbZH042gRT0/3dOCbiv45jOt5E7jpM4h25VzyJujule/3GitJ1/Ib3U/X83auiI3aojKoBe13e1g5g7bwnjg==
 
 entities@^2.0.0:
   version "2.2.0"

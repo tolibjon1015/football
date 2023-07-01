@@ -1,7 +1,7 @@
-import React from 'react'
-import { Aside } from '@mantine/core'
-import { IconEye, IconMessageCircle } from '@tabler/icons-react';
-import { Card, Text, Group, Center, createStyles, getStylesRef, rem } from '@mantine/core';
+import { Aside, Avatar, Card, Group, Image, Button, rem, getStylesRef, Center, Text, createStyles } from '@mantine/core';
+import Link from 'next/link';
+import { IconArrowBigRightLine, IconEye, IconMessageCircle } from '@tabler/icons-react';
+import { useEffect, useState } from 'react';
 
 
 const useStyles = createStyles((theme) => ({
@@ -55,24 +55,77 @@ const useStyles = createStyles((theme) => ({
     },
 }));
 
-const AppAside = ({ product }) => {
-    console.log(product);
+
+const AppAsida = () => {
     const { classes, theme } = useStyles();
+    const [data, setData] = useState(null)
+    const [isLoading, setLoading] = useState(false)
+
+    useEffect(() => {
+        setLoading(true)
+        fetch('https://onside-sport.uz/api/news/')
+            .then((res) => res.json())
+            .then((data) => {
+                const pro = data.data
+                setData(pro)
+                setLoading(false)
+            })
+    }, [])
+
+    if (isLoading) return <p>loading</p>
+    if (!data) return <p>No profile data</p>
+
     return (
-        <Aside p="md" hiddenBreakpoint="sm" width={{ sm: 200, lg: 300 }}>
-            <Text>saslom</Text>
-        </Aside>
+        <Aside p="md" sx={{ overflow: "auto" }} height="auto" width={{ sm: 200, lg: 300 }}>
+            <Text m={"0 0 20px 0"}>Tavsiya qilamiz</Text>
+            {data.slice(0, 4).map((item) => {
+                return <Card
+                    m="5px 0"
+                    p="lg"
+                    shadow="lg"
+                    className={classes.card}
+                    radius="md"
+                    component="a"
+                    href={item.id}
+                    target="_blank"
+                >
+                    <div className={classes.image} style={{ backgroundImage: `url(${item.image.url})` }} />
+                    <div className={classes.overlay} />
+
+                    <div className={classes.content}>
+                        <div>
+                            <Text size="lg" className={classes.title} weight={500}>{item.text.slice(0, 45)}...</Text>
+
+                            <Group position="apart" spacing="xs">
+                                <Text size="sm" className={classes.author}>
+                                    {item.author.name}
+                                </Text>
+
+                                <Group spacing="lg">
+                                    <Center>
+                                        <IconEye size="1rem" stroke={1.5} color={theme.colors.dark[2]} />
+                                        <Text size="sm" className={classes.bodyText}>
+                                            {item.views}
+                                        </Text>
+                                    </Center>
+                                    <Center>
+                                        <IconMessageCircle size="1rem" stroke={1.5} color={theme.colors.dark[2]} />
+                                        <Text size="sm" className={classes.bodyText}>
+                                            {item.comments}
+                                        </Text>
+                                    </Center>
+                                </Group>
+                            </Group>
+                        </div>
+                    </div>
+                </Card>
+            })}
+            <Link href="/news">
+                <Button m={"20px 0"} variant='outline' rightIcon={<IconArrowBigRightLine />} component='a' href='/news'>Ko'proq ko'rish</Button>
+            </Link>
+        </Aside >
+
     )
 }
 
-export default AppAside
-
-export async function getStaticProps() {
-    const res = await fetch("https://fakestoreapi.com/products");
-    const product = await res.json();
-    return {
-        props: {
-            product,
-        }
-    };
-};
+export default AppAsida
