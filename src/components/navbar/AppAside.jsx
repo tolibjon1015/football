@@ -1,4 +1,4 @@
-import { Aside, Avatar, Card, Group, Image, Button, rem, getStylesRef, Center, Text, createStyles } from '@mantine/core';
+import { Aside, Box, ScrollArea, Card, Group, Image, Button, rem, getStylesRef, Center, Text, createStyles } from '@mantine/core';
 import Link from 'next/link';
 import { IconArrowBigRightLine, IconEye, IconMessageCircle } from '@tabler/icons-react';
 import { useEffect, useState } from 'react';
@@ -76,52 +76,55 @@ const AppAsida = () => {
     if (!data) return <p>No profile data</p>
 
     return (
-        <Aside p="md" sx={{ overflow: "auto" }} height="auto" width={{ sm: 200, lg: 300 }}>
-            <Text m={"0 0 20px 0"}>Tavsiya qilamiz</Text>
-            {data.slice(0, 4).map((item) => {
-                return <Card
-                    m="5px 0"
-                    p="lg"
-                    shadow="lg"
-                    className={classes.card}
-                    radius="md"
-                    component="a"
-                    href={`news/${item.id}`}
-                >
-                    <div className={classes.image} style={{ backgroundImage: `url(${item.image.url})` }} />
-                    <div className={classes.overlay} />
+        <Aside sx={{ overflow: "auto" }} p="md" width={{ sm: 200, lg: 300 }}>
+            <ScrollArea type="always" offsetScrollbars scrollbarSize={10}>
+                <Text m={"0 0 20px 0"}>Tavsiya qilamiz</Text>
+                <Box sx={{ display: "flex", flexDirection: "column", gap: "20px" }}>
+                    {data.slice(0, 6).map((item) => {
+                        return <Card
+                            p="lg"
+                            shadow="lg"
+                            className={classes.card}
+                            radius="md"
+                            component="a"
+                            href={`news/${item.id}`}
+                        >
+                            <div className={classes.image} style={{ backgroundImage: `url(${item.image.url})` }} />
+                            <div className={classes.overlay} />
 
-                    <div className={classes.content}>
-                        <div>
-                            <Text size="lg" className={classes.title} weight={500}>{item.text.slice(0, 45)}...</Text>
+                            <div className={classes.content}>
+                                <div>
+                                    <Text size="lg" className={classes.title} weight={500}>{item.text.slice(0, 45)}...</Text>
 
-                            <Group position="apart" spacing="xs">
-                                <Text size="sm" className={classes.author}>
-                                    {item.author.name}
-                                </Text>
-
-                                <Group spacing="lg">
-                                    <Center>
-                                        <IconEye size="1rem" stroke={1.5} color={theme.colors.dark[2]} />
-                                        <Text size="sm" className={classes.bodyText}>
-                                            {item.views}
+                                    <Group position="apart" spacing="xs">
+                                        <Text size="sm" className={classes.author}>
+                                            {item.author.name}
                                         </Text>
-                                    </Center>
-                                    <Center>
-                                        <IconMessageCircle size="1rem" stroke={1.5} color={theme.colors.dark[2]} />
-                                        <Text size="sm" className={classes.bodyText}>
-                                            {item.comments}
-                                        </Text>
-                                    </Center>
-                                </Group>
-                            </Group>
-                        </div>
-                    </div>
-                </Card>
-            })}
-            <Link href="/news">
-                <Button m={"20px 0"} variant='outline' rightIcon={<IconArrowBigRightLine />} component='a' href='/news'>Ko'proq ko'rish</Button>
-            </Link>
+
+                                        <Group spacing="lg">
+                                            <Center>
+                                                <IconEye size="1rem" stroke={1.5} color={theme.colors.dark[2]} />
+                                                <Text size="sm" className={classes.bodyText}>
+                                                    {item.views}
+                                                </Text>
+                                            </Center>
+                                            <Center>
+                                                <IconMessageCircle size="1rem" stroke={1.5} color={theme.colors.dark[2]} />
+                                                <Text size="sm" className={classes.bodyText}>
+                                                    {item.comments}
+                                                </Text>
+                                            </Center>
+                                        </Group>
+                                    </Group>
+                                </div>
+                            </div>
+                        </Card>
+                    })}
+                </Box>
+                <Link href="/news">
+                    <Button m={"20px 0"} variant='outline' rightIcon={<IconArrowBigRightLine />} component='a' href='/news'>Ko'proq ko'rish</Button>
+                </Link>
+            </ScrollArea>
         </Aside >
 
     )

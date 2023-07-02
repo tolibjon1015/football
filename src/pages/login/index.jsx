@@ -79,7 +79,7 @@ export default function index() {
           ref={password}
         />
         <Checkbox label="Keep me logged in" mt="xl" size="md" />
-        <Button onClick={getSignIn} fullWidth mt="xl" size="md">
+        <Button onClick={getSignIn} variant="outline" fullWidth mt="xl" size="md">
           Login
         </Button>
       </Paper>

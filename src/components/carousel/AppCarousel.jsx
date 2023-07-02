@@ -48,7 +48,7 @@ function AppCarousel({ news }) {
                                     data-aos-anchor-placement="bottom-center"
                                     className="carouselText"
                                 >
-                                    {<Box className="blur-one" sx={{ width: "100%", textAlign: "center", position: "absolute", bottom: "0", left: "0", padding: "30px", backdropFilter: "20px", background: "#333" }}>
+                                    {<Box className="blur-one" sx={{ width: "100%", textAlign: "center", position: "absolute", bottom: "0", left: "0", padding: "30px", backgroundImage: 'linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, .85) 90%)' }}>
                                         <Text sx={{ color: "white", fontSize: "23px" }}>{item.text}...</Text>
                                     </Box>}
                                 </Box>

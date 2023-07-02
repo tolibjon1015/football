@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
-import { Navbar, } from "@mantine/core"
+import { Box, Navbar, ScrollArea } from "@mantine/core"
 import { createStyles, Paper, Text, ThemeIcon, rem, Button } from '@mantine/core';
-import { IconBallFootball, IconColorSwatch, IconArrowBigRightLine } from '@tabler/icons-react';
+import { IconBallFootball, IconArrowBigRightLine } from '@tabler/icons-react';
 import Link from 'next/link';
 
 const useStyles = createStyles((theme) => ({
@@ -50,18 +50,30 @@ const AppNavbar = () => {
     if (!data) return <p>No profile data</p>
 
     return (
-        <Navbar p="md" hiddenBreakpoint="sm" width={{ sm: 200, lg: 300 }}>
-            <Text m={"0 0 10px"}>Oxirgi yangiliklar</Text>
-            {data.slice(7, 11).map((item) => {
-                return <Paper m={"5px 0"} withBorder component='a' href={`/news/${item.id}`} radius="md" className={classes.card}>
-                    <Text size="15px" weight={500} mt="md">
-                        {item.text.slice(0, 40)}
-                    </Text>
-                </Paper>
-            })}
-            <Link href="/news">
-                <Button m={"10px 0"} variant='outline' rightIcon={<IconArrowBigRightLine />} component='a' href='/news'>Ko'proq ko'rish</Button>
-            </Link>
+        <Navbar p="md" sx={{ overflow: "auto" }} hiddenBreakpoint="sm" width={{ sm: 200, lg: 300 }}>
+            <ScrollArea type="always" offsetScrollbars scrollHideDelay={1500}>
+                <Text m={"0 0 10px 0"}>Oxirgi yangiliklar</Text>
+                <Box sx={{ display: "flex", flexDirection: "column" }}>
+                    {data.slice(7, 17).map((item) => {
+                        return <Paper m={"5px 0"} withBorder component='a' href={`/news/${item.id}`} radius="md" className={classes.card}>
+                            <ThemeIcon
+                                size="xl"
+                                radius="md"
+                                variant="gradient"
+                                gradient={{ deg: 0, from: 'pink', to: 'orange' }}
+                            >
+                                <IconBallFootball />
+                            </ThemeIcon>
+                            <Text size="15px" weight={500} mt="md">
+                                {item.text.slice(0, 40)}
+                            </Text>
+                        </Paper>
+                    })}
+                </Box>
+                <Link href="/news">
+                    <Button m={"20px 0"} variant='outline' rightIcon={<IconArrowBigRightLine />} component='a' href='/news'>Ko'proq ko'rish</Button>
+                </Link>
+            </ScrollArea>
         </Navbar>
     )
 }
