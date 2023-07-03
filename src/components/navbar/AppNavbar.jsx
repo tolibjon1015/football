@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Box, Navbar, ScrollArea } from "@mantine/core"
+import { Box, Navbar, ScrollArea, Loader } from "@mantine/core"
 import { createStyles, Paper, Text, ThemeIcon, rem, Button } from '@mantine/core';
 import { IconBallFootball, IconArrowBigRightLine } from '@tabler/icons-react';
 import Link from 'next/link';
@@ -46,7 +46,7 @@ const AppNavbar = () => {
             })
     }, [])
 
-    if (isLoading) return <p>loading</p>
+    if (isLoading) return <Loader size="xl" variant="bars" />;
     if (!data) return <p>No profile data</p>
 
     return (
@@ -54,7 +54,7 @@ const AppNavbar = () => {
             <ScrollArea type="always" offsetScrollbars scrollHideDelay={1500}>
                 <Text m={"0 0 10px 0"}>Oxirgi yangiliklar</Text>
                 <Box sx={{ display: "flex", flexDirection: "column" }}>
-                    {data.slice(7, 17).map((item) => {
+                    {data?.slice(7, 17).map((item) => {
                         return <Paper m={"5px 0"} withBorder component='a' href={`/news/${item.id}`} radius="md" className={classes.card}>
                             <ThemeIcon
                                 size="xl"

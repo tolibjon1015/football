@@ -1,13 +1,29 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Carousel } from "@mantine/carousel";
 import Autoplay from 'embla-carousel-autoplay';
-import { Box, Text, Image } from "@mantine/core";
+import { Box, Text, Image, Loader } from "@mantine/core";
 import { useRef } from "react";
 import Link from "next/link";
 
-function AppCarousel({ news }) {
-    const api = news.data
+function AppCarousel() {
     const autoplay = useRef(Autoplay({ delay: 2500 }));
+    const [data, setData] = useState(null)
+    const [isLoading, setLoading] = useState(false)
+
+    useEffect(() => {
+        setLoading(true)
+        fetch('https://onside-sport.uz/api/news/')
+            .then((res) => res.json())
+            .then((data) => {
+                const pro = data.data
+                setData(pro)
+                setLoading(false)
+            })
+    }, [])
+
+    if (isLoading) return <Loader size="xl" m={"0 auto"} />;
+    if (!data) return <p>No profile data</p>
+
     return (
         <>
             <Carousel

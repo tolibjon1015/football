@@ -1,4 +1,4 @@
-import { Aside, Box, ScrollArea, Card, Group, Image, Button, rem, getStylesRef, Center, Text, createStyles } from '@mantine/core';
+import { Aside, Box, ScrollArea, Loader, Card, Group, Image, Button, rem, getStylesRef, Center, Text, createStyles } from '@mantine/core';
 import Link from 'next/link';
 import { IconArrowBigRightLine, IconEye, IconMessageCircle } from '@tabler/icons-react';
 import { useEffect, useState } from 'react';
@@ -72,7 +72,7 @@ const AppAsida = () => {
             })
     }, [])
 
-    if (isLoading) return <p>loading</p>
+    if (isLoading) return <Loader size="xl" variant="bars" />;
     if (!data) return <p>No profile data</p>
 
     return (
@@ -80,7 +80,7 @@ const AppAsida = () => {
             <ScrollArea type="always" offsetScrollbars scrollbarSize={10}>
                 <Text m={"0 0 20px 0"}>Tavsiya qilamiz</Text>
                 <Box sx={{ display: "flex", flexDirection: "column", gap: "20px" }}>
-                    {data.slice(0, 6).map((item) => {
+                    {data?.slice(0, 6).map((item) => {
                         return <Card
                             p="lg"
                             shadow="lg"
