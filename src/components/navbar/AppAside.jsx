@@ -82,6 +82,7 @@ const AppAsida = () => {
                 <Box sx={{ display: "flex", flexDirection: "column", gap: "20px" }}>
                     {data?.slice(0, 6).map((item) => {
                         return <Card
+                            key={item.id}
                             p="lg"
                             shadow="lg"
                             className={classes.card}

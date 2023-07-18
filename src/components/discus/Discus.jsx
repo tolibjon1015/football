@@ -72,7 +72,7 @@ export default function Discus() {
     const { classes } = useStyles();
     return (
         <Box m={"40px 0"}>
-            <Text m={"0 0 20px 0"}>Superliga haqida</Text>
+            <Text m={"20px auto"}>Superliga haqida</Text>
             <Group sx={{ display: "grid", gridTemplateColumns: "auto auto", gap: "20px", }}>
                 {data.map((item) => {
                     return <Paper withBorder key={item.id} radius="md" className={classes.comment}>

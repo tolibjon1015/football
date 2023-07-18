@@ -102,8 +102,8 @@ const mockdata = [
     },
     {
         id: 3,
-        text: "O'yinlar",
-        link: "/"
+        text: "o'yinlar",
+        link: "/match"
     },
     {
         id: 4,
@@ -154,9 +154,9 @@ export default function AppHeader() {
                 <ScrollArea h={`calc(100vh - ${rem(60)})`} mx="-md">
                     <Divider my="sm" color={theme.colorScheme === 'dark' ? 'dark.5' : 'gray.1'} />
 
-                    <a href="#" className={classes.link}>
+                    <Text component='a' href="/" className={classes.link}>
                         Home
-                    </a>
+                    </Text>
                     <UnstyledButton className={classes.link} onClick={toggleLinks}>
                         <Center inline>
                             <Box component="span" mr={5}>
@@ -166,12 +166,12 @@ export default function AppHeader() {
                         </Center>
                     </UnstyledButton>
 
-                    <a href="#" className={classes.link}>
+                    <Link href={"/"} className={classes.link}>
                         Learn
-                    </a>
-                    <a href="#" className={classes.link}>
+                    </Link>
+                    <Link href={"/"} className={classes.link}>
                         Academy
-                    </a>
+                    </Link>
 
                     <Divider my="sm" color={theme.colorScheme === 'dark' ? 'dark.5' : 'gray.1'} />
 

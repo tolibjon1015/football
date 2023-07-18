@@ -1,5 +1,4 @@
 import { Html, Head, Main, NextScript } from "next/document";
-import { ScrollArea } from "@mantine/core";
 
 export default function Document() {
   return (

@@ -55,7 +55,7 @@ const AppNavbar = () => {
                 <Text m={"0 0 10px 0"}>Oxirgi yangiliklar</Text>
                 <Box sx={{ display: "flex", flexDirection: "column" }}>
                     {data?.slice(7, 17).map((item) => {
-                        return <Paper m={"5px 0"} withBorder component='a' href={`/news/${item.id}`} radius="md" className={classes.card}>
+                        return <Paper m={"5px 0"} withBorder key={item.id} component='a' href={`/news/${item.id}`} radius="md" className={classes.card}>
                             <ThemeIcon
                                 size="xl"
                                 radius="md"
@@ -65,7 +65,7 @@ const AppNavbar = () => {
                                 <IconBallFootball />
                             </ThemeIcon>
                             <Text size="15px" weight={500} mt="md">
-                                {item.text.slice(0, 40)}
+                                {item.text.slice(0, 40)} ...
                             </Text>
                         </Paper>
                     })}

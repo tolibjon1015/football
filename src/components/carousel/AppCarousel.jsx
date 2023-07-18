@@ -47,7 +47,7 @@ function AppCarousel() {
 
                 }}
             >
-                {api.slice(4, 7).map((item) => {
+                {data.slice(4, 7).map((item) => {
                     return (
                         <Carousel.Slide key={item.id}>
                             <Link href={`news/${item.id}`}>
