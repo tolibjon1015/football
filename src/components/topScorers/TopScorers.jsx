@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Box, Loader, Table, Text } from '@mantine/core'
+import { Anchor, Box, Grid, Group, Loader, SimpleGrid, Table, Text } from '@mantine/core'
 
 const TopScorers = () => {
     const api = "https://apiv2.allsportsapi.com/football/?&met=Topscorers&leagueId=207&APIkey=0c25abf2b0c0c6c45220dc9a04f7372d11f5b515625856f01b0292b7ac7b958e"
@@ -18,7 +18,6 @@ const TopScorers = () => {
 
     if (isLoading) return <Loader size="xl" m={"0 auto"} />;
     if (!data) return <p>No profile data</p>
-    console.log(data);
 
 
     const ths = (
@@ -41,7 +40,17 @@ const TopScorers = () => {
 
     return (
         <Box>
-            <Text m={"20px auto"}>Eng ko'p gol urgan o'yinchilar</Text>
+            <Grid justify="space-between" align="center">
+                <Grid.Col span={3} >
+                    <Text m={"20px auto"}>Eng ko'p gol urgan o'yinchilar</Text>
+                </Grid.Col>
+                <Grid.Col span={3}>
+                    <Anchor href="/top-scorers" >
+                        Top 5 turnirlarni ko'rish
+                    </Anchor>
+                </Grid.Col>
+            </Grid>
+
             <Table highlightOnHover withBorder horizontalSpacing="xl" captionSide="bottom">
                 <caption>Top Scorers</caption>
                 <thead>{ths}</thead>

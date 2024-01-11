@@ -28,19 +28,19 @@ const index = ({ news }) => {
       </Box>
 
       <Grid justify="space-between">
-        {data.filter((fill) => fill.text.toLowerCase().includes(value.toLowerCase())).map((item) => {
+        {data.filter((fill) => fill.title.toLowerCase().includes(value.toLowerCase())).map((item) => {
           return (
             <Grid.Col md={6} xl={3} key={item.id}>
               <Card shadow="sm" padding="lg" radius="md" withBorder>
                 <Card.Section>
-                  <Image src={item.image.url} height={200} alt="Norway" />
+                  <Image src={item.poster.path} height={200} alt="Norway" />
                 </Card.Section>
 
                 <Group position="apart" mt="md" mb="xs">
-                  <Text weight={500}>{item.text.slice(0, 30)}...</Text>
+                  <Text weight={500}>{item.title.slice(0, 70)}...</Text>
                 </Group>
 
-                <Link href={`/news/${item.id}`}>
+                <Link href={`/news/${item.slug}`}>
                   <Button
                     variant="light"
                     color="blue"
@@ -63,12 +63,12 @@ const index = ({ news }) => {
 export default index;
 
 export async function getStaticProps() {
-  const res = await fetch("https://onside-sport.uz/api/news/");
+  const res = await fetch("https://api.tribuna.uz/v1/posts");
   const news = await res.json();
 
   return {
     props: {
-      news,
+      news
     },
   };
 }

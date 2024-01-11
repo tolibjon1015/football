@@ -12,7 +12,7 @@ function AppCarousel() {
 
     useEffect(() => {
         setLoading(true)
-        fetch('https://onside-sport.uz/api/news/')
+        fetch('https://api.tribuna.uz/v1/posts')
             .then((res) => res.json())
             .then((data) => {
                 const pro = data.data
@@ -53,7 +53,7 @@ function AppCarousel() {
                             <Link href={`news/${item.id}`}>
                                 <Image
                                     style={{ position: "relative", borderRadius: "10px", backgroundPosition: "center", backgroundSize: "cover" }}
-                                    src={item.image.url}
+                                    src={item.poster.path}
                                     alt="img"
                                     sizes="(max-width: 768px) 100vw,
               (max-width: 1200px) 50vw,                  
@@ -65,7 +65,7 @@ function AppCarousel() {
                                     className="carouselText"
                                 >
                                     {<Box className="blur-one" sx={{ width: "100%", textAlign: "center", position: "absolute", bottom: "0", left: "0", padding: "30px", backgroundImage: 'linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, .85) 90%)' }}>
-                                        <Text sx={{ color: "white", fontSize: "23px" }}>{item.text}...</Text>
+                                        <Text sx={{ color: "white", fontSize: "23px" }}>{item.title}...</Text>
                                     </Box>}
                                 </Box>
                             </Link>

@@ -63,7 +63,7 @@ const AppAsida = () => {
 
     useEffect(() => {
         setLoading(true)
-        fetch('https://onside-sport.uz/api/news/')
+        fetch('https://api.tribuna.uz/v1/posts')
             .then((res) => res.json())
             .then((data) => {
                 const pro = data.data
@@ -90,29 +90,29 @@ const AppAsida = () => {
                             component="a"
                             href={`news/${item.id}`}
                         >
-                            <div className={classes.image} style={{ backgroundImage: `url(${item.image.url})` }} />
+                            <div className={classes.image} style={{ backgroundImage: `url(${item.poster.path})` }} />
                             <div className={classes.overlay} />
 
                             <div className={classes.content}>
                                 <div>
-                                    <Text size="lg" className={classes.title} weight={500}>{item.text.slice(0, 45)}...</Text>
+                                    <Text size="lg" className={classes.title} weight={500}>{item.title.slice(0, 40)}...</Text>
 
                                     <Group position="apart" spacing="xs">
                                         <Text size="sm" className={classes.author}>
-                                            {item.author.name}
+                                            {'Tolibhon Jamoliddinov'}
                                         </Text>
 
                                         <Group spacing="lg">
                                             <Center>
                                                 <IconEye size="1rem" stroke={1.5} color={theme.colors.dark[2]} />
                                                 <Text size="sm" className={classes.bodyText}>
-                                                    {item.views}
+                                                    {item.viewed}
                                                 </Text>
                                             </Center>
                                             <Center>
                                                 <IconMessageCircle size="1rem" stroke={1.5} color={theme.colors.dark[2]} />
                                                 <Text size="sm" className={classes.bodyText}>
-                                                    {item.comments}
+                                                    {item.id}
                                                 </Text>
                                             </Center>
                                         </Group>

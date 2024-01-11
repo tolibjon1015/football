@@ -37,7 +37,7 @@ const AppNavbar = () => {
 
     useEffect(() => {
         setLoading(true)
-        fetch('https://onside-sport.uz/api/news/')
+        fetch('https://api.tribuna.uz/v1/posts')
             .then((res) => res.json())
             .then((data) => {
                 const pro = data.data
@@ -65,7 +65,7 @@ const AppNavbar = () => {
                                 <IconBallFootball />
                             </ThemeIcon>
                             <Text size="15px" weight={500} mt="md">
-                                {item.text.slice(0, 40)} ...
+                                {item.title} ...
                             </Text>
                         </Paper>
                     })}
